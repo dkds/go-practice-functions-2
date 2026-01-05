@@ -8,10 +8,13 @@ func main() {
 	numbers := []int{1, 2, 3, 4}
 	fmt.Println("Numbers: ", numbers)
 
-	doubled := transformNumbers(&numbers, func(i int) int { return i * 2 })
+	doubleTransformer := createTransformer(2)
+	tripleTransformer := createTransformer(3)
+
+	doubled := transformNumbers(&numbers, doubleTransformer)
 	fmt.Println("Doubled: ", doubled)
 
-	tripled := transformNumbers(&numbers, func(i int) int { return i * 3 })
+	tripled := transformNumbers(&numbers, tripleTransformer)
 	fmt.Println("Tripled: ", tripled)
 
 	sqred := transformNumbers(&numbers, func(i int) int { return i * i })
@@ -24,4 +27,10 @@ func transformNumbers(numbers *[]int, transformation intTransformer) []int {
 		doubled = append(doubled, transformation(number))
 	}
 	return doubled
+}
+
+func createTransformer(factor int) intTransformer {
+	return func(i int) int {
+		return i * factor
+	}
 }
