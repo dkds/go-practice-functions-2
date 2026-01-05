@@ -2,6 +2,8 @@ package main
 
 import "fmt"
 
+type intTransformer func(int) int
+
 func main() {
 	numbers := []int{1, 2, 3, 4}
 	fmt.Println("Numbers: ", numbers)
@@ -16,7 +18,7 @@ func main() {
 	fmt.Println("Squared: ", sqred)
 }
 
-func transformNumbers(numbers *[]int, transformation func(int) int) []int {
+func transformNumbers(numbers *[]int, transformation intTransformer) []int {
 	doubled := []int{}
 	for number := range *numbers {
 		doubled = append(doubled, transformation(number))
