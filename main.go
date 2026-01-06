@@ -3,8 +3,9 @@ package main
 import "fmt"
 
 func main() {
-	sum := sum(1, 2, 3, 4, 5)
-	fmt.Println("Sum is", sum)
+	numbers := []int{1, 2, 3, 4, 5}
+	sum := sum(numbers...)
+	fmt.Println("Sum of", numbers, "is", sum)
 }
 
 func sum(numbers ...int) int {
