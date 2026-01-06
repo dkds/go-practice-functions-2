@@ -20,7 +20,7 @@ func functions1() {
 
 func transformNumbers(numbers *[]int, transformation intTransformer) []int {
 	doubled := []int{}
-	for number := range *numbers {
+	for _, number := range *numbers {
 		doubled = append(doubled, transformation(number))
 	}
 	return doubled

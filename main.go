@@ -3,22 +3,15 @@ package main
 import "fmt"
 
 func main() {
-	number := 6
-	factorial := factorial(number)
-	fmt.Println("Factorial of", number, "is", factorial)
+	numbers := []int{1, 2, 3, 4, 5}
+	sum := sum(numbers)
+	fmt.Println("Sum of", numbers, "is", sum)
 }
 
-// func factorial(number int) int {
-// 	total := 1
-// 	for i := 1; i <= number; i++ {
-// 		total *= i
-// 	}
-// 	return total
-// }
-
-func factorial(number int) int {
-	if number == 0 {
-		return 1
+func sum(numbers []int) int {
+	sum := 0
+	for _, number := range numbers {
+		sum += number
 	}
-	return number * factorial(number-1)
+	return sum
 }
